@@ -9,7 +9,7 @@ import {
 
 const SnackbarContext = createContext(SnackbarContextDefaultValue);
 
-export const SnackbarProvider = ({ children }) => {
+export const SnackbarProvider = ({ children }: { children: any }) => {
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: "",
