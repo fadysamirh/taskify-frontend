@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Task Management System - Frontend
 
-## Getting Started
+This is the frontend for the **Task Management System**, built using Next.js. It allows users to register, log in, create tasks, edit tasks, delete tasks, and filter tasks by their status. The app provides a user-friendly interface for task management.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Project Description](#project-description)
+- [Setup and Installation](#setup-and-installation)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Deployed Link](#deployed-link)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Description
 
-## Learn More
+This project is a task management system designed to help users efficiently track and organize their tasks. The frontend interacts with the backend API to provide a seamless experience for managing tasks.
 
-To learn more about Next.js, take a look at the following resources:
+---
+## Setup and Installation
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/fadysamirh/taskify-frontend.git
+   cd taskify-frontend
+   ```
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+3. Create an .env file and set the following environment variables:
+    ```bash
+    NEXT_PUBLIC_API_URL=<backend-api-url>
+    ```
+4. Run the development server:
+    ```bash
+    npm run dev
+    ```
+5. Visit the app at http://localhost:3000.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
+1. Framework: Next.js
+2. State Management: Context API
+3. Styling: Material-UI
+4. HTTP Client: Axios
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Features
+1. Authentication: Users can register and log in.
+2. Task Management: Users can view, create, edit, and delete tasks.
+3. Responsive Design: The app is fully responsive and works on all devices.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Screenshots
+-[Screenshot 1](https://i.ibb.co/Yj57cmM/Screenshot-2024-12-09-at-9-36-49-AM.png)
+-[Screenshot 2](https://i.ibb.co/JB4yb02/Screenshot-2024-12-09-at-9-37-04-AM.png)
+-[Screenshot 3](https://i.ibb.co/Lgjpvgr/Screenshot-2024-12-09-at-9-37-15-AM.png)
+-[Screenshot 4](https://i.ibb.co/h8rvvT5/Screenshot-2024-12-09-at-9-37-27-AM.png)
+-[Screenshot 5](https://i.ibb.co/Nj7qcMr/Screenshot-2024-12-09-at-9-37-45-AM.png)
+-[Screenshot 6](https://i.ibb.co/sb928Nc/Screenshot-2024-12-09-at-9-37-57-AM.png)
+-[Screenshot 7](https://i.ibb.co/PZkVThx/Screenshot-2024-12-09-at-9-38-27-AM.png)
+-[Screenshot 8](https://i.ibb.co/2ZdG091/Screenshot-2024-12-09-at-9-38-36-AM.png)
+-[Screenshot 9](https://i.ibb.co/1mbgwpD/Screenshot-2024-12-09-at-9-38-55-AM.png)
+-[Screenshot 10](https://i.ibb.co/DW6DwmH/Screenshot-2024-12-09-at-9-39-07-AM.png)
+-[Screenshot 11](https://i.ibb.co/t3DVXDz/Screenshot-2024-12-09-at-9-39-15-AM.png)
+-[Screenshot 12](https://i.ibb.co/SKhh5F3/Screenshot-2024-12-09-at-9-39-25-AM.png)
+## Deployed Link
+- [Task Management UI](https://taskify-frontend-git-main-fady-samirs-projects.vercel.app/)
+- [Task Management API](https://taskify-api.inplace-eg.com/)
