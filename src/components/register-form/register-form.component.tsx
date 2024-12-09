@@ -1,22 +1,17 @@
 "use client";
-import { SxProps } from "@mui/system";
-import { Control, FieldError, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { FC, useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import { AppTextField } from "@/components/common/app-text-field/app-text-field";
-import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useTheme } from "@mui/material/styles";
 import { registerFormSchema } from "@/components/register-form/register-form.schema";
 import Image from "next/image";
 import { useIsMobile } from "@/contexts/app-context/app-context.hooks";
 import { useRouter } from "next/navigation";
-import { AuthenticationApi } from "@/api/authentication.api";
 import { useAppContext } from "@/contexts/app-context/app-context";
 
-type Props = {};
-
-export const RegisterFormComponent: FC<Props> = ({}) => {
+export const RegisterFormComponent: FC = () => {
   const theme = useTheme();
   const isMobile = useIsMobile();
   const router = useRouter();
@@ -27,7 +22,7 @@ export const RegisterFormComponent: FC<Props> = ({}) => {
   const {
     handleSubmit,
     control,
-    formState: { errors, isValid },
+    formState: { errors },
     getValues,
   } = useForm({
     defaultValues: {
@@ -75,6 +70,7 @@ export const RegisterFormComponent: FC<Props> = ({}) => {
       right: "50vw",
       top: "1vw",
     },
+    centerButton: { width: "100%", display: "flex", justifyContent: "center" },
   };
 
   const onRegister = async () => {
@@ -89,58 +85,57 @@ export const RegisterFormComponent: FC<Props> = ({}) => {
   };
 
   return (
-    <form style={styles.container} onSubmit={handleSubmit(onRegister)}>
-      <Image
-        src={"/logo.png"}
-        alt={"Logo"}
-        width={200}
-        height={200}
-        style={isMobile ? styles.logoMobile : styles.logo}
-      />
+    <Box sx={styles.container}>
+      <Box sx={isMobile ? styles.logoMobile : styles.logo}>
+        <Image src={"/logo.png"} alt={"Logo"} width={200} height={200} />
+      </Box>
       <Typography variant={"h3"} fontWeight={"bold"}>
         Register
       </Typography>
-      <Box>
-        <AppTextField
-          name={"firstName"}
-          control={control}
-          label={"First Name"}
-          required={true}
-          error={errors.firstName}
-        />
-        <AppTextField
-          name={"lastName"}
-          control={control}
-          label={"Last Name"}
-          required={true}
-          error={errors.lastName}
-        />
-        <AppTextField
-          name={"email"}
-          control={control}
-          label={"Email"}
-          required={true}
-          error={errors.email}
-        />
-        <AppTextField
-          name={"password"}
-          control={control}
-          label={"Password"}
-          required={true}
-          type={"password"}
-          error={errors.password}
-        />
-      </Box>
+      <form onSubmit={handleSubmit(onRegister)}>
+        <Box>
+          <AppTextField
+            name={"firstName"}
+            control={control}
+            label={"First Name"}
+            required={true}
+            error={errors.firstName}
+          />
+          <AppTextField
+            name={"lastName"}
+            control={control}
+            label={"Last Name"}
+            required={true}
+            error={errors.lastName}
+          />
+          <AppTextField
+            name={"email"}
+            control={control}
+            label={"Email"}
+            required={true}
+            error={errors.email}
+          />
+          <AppTextField
+            name={"password"}
+            control={control}
+            label={"Password"}
+            required={true}
+            type={"password"}
+            error={errors.password}
+          />
+        </Box>
 
-      <Button
-        variant={"contained"}
-        sx={styles.button}
-        type={"submit"}
-        size={"large"}
-      >
-        Register
-      </Button>
-
+        <Box sx={styles.centerButton}>
+          <Button
+            variant={"contained"}
+            sx={styles.button}
+            type={"submit"}
+            size={"large"}
+          >
+            Register
+          </Button>
+        </Box>
+      </form>
       <Box sx={styles.loginNowContainer}>
         <Typography variant={"body2"}>Already a user? </Typography>
         <Button
@@ -151,6 +146,6 @@ export const RegisterFormComponent: FC<Props> = ({}) => {
           Login Now
         </Button>
       </Box>
-    </form>
+    </Box>
   );
 };

@@ -1,28 +1,17 @@
 "use client";
-import { SxProps } from "@mui/system";
-import { Control, FieldError, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import React, { FC, useState } from "react";
-import {
-  Box,
-  Button,
-  CircularProgress,
-  Snackbar,
-  Typography,
-} from "@mui/material";
+import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import { AppTextField } from "@/components/common/app-text-field/app-text-field";
-import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useTheme } from "@mui/material/styles";
-import { AuthenticationApi } from "@/api/authentication.api";
 import { useRouter } from "next/navigation";
 import { useIsMobile } from "@/contexts/app-context/app-context.hooks";
 import Image from "next/image";
 import { useAppContext } from "@/contexts/app-context/app-context";
 import { loginFormSchema } from "@/components/login-form/login-form.schema";
 
-type Props = {};
-
-export const LoginFormComponent: FC<Props> = ({}) => {
+export const LoginFormComponent: FC = () => {
   const theme = useTheme();
   const router = useRouter();
   const isMobile = useIsMobile();
@@ -33,7 +22,7 @@ export const LoginFormComponent: FC<Props> = ({}) => {
   const {
     handleSubmit,
     control,
-    formState: { errors, isValid },
+    formState: { errors },
     getValues,
   } = useForm({
     defaultValues: {
@@ -48,8 +37,8 @@ export const LoginFormComponent: FC<Props> = ({}) => {
       width: isMobile ? "100%" : "35%",
       height: "100vh",
       display: "flex",
-      justifyContent: isMobile ? "start" : "center",
       flexDirection: "column",
+      justifyContent: isMobile ? "start" : "center",
       marginLeft: "auto",
       marginRight: "auto",
       paddingLeft: isMobile ? "4vw" : "0",
@@ -81,6 +70,7 @@ export const LoginFormComponent: FC<Props> = ({}) => {
       left: "50vw",
       top: "1vw",
     },
+    centerButton: { width: "100%", display: "flex", justifyContent: "center" },
   };
 
   const onLogin = async () => {
@@ -93,44 +83,43 @@ export const LoginFormComponent: FC<Props> = ({}) => {
   };
 
   return (
-    <form style={styles.container} onSubmit={handleSubmit(onLogin)}>
-      <Image
-        src={"/logo.png"}
-        alt={"Logo"}
-        width={200}
-        height={200}
-        style={isMobile ? styles.logoMobile : styles.logo}
-      />
+    <Box sx={styles.container}>
+      <Box sx={isMobile ? styles.logoMobile : styles.logo}>
+        <Image src={"/logo.png"} alt={"Logo"} width={200} height={200} />
+      </Box>
       <Typography variant={"h3"} fontWeight={"bold"}>
         Login
       </Typography>
-      <Box>
-        <AppTextField
-          name={"email"}
-          control={control}
-          label={"Email"}
-          required={true}
-          error={errors.email}
-        />
-        <AppTextField
-          name={"password"}
-          control={control}
-          label={"Password"}
-          required={true}
-          type={"password"}
-          error={errors.password}
-        />
-      </Box>
+      <form onSubmit={handleSubmit(onLogin)}>
+        <Box>
+          <AppTextField
+            name={"email"}
+            control={control}
+            label={"Email"}
+            required={true}
+            error={errors.email}
+          />
+          <AppTextField
+            name={"password"}
+            control={control}
+            label={"Password"}
+            required={true}
+            type={"password"}
+            error={errors.password}
+          />
+        </Box>
 
-      <Button
-        variant={"contained"}
-        sx={styles.button}
-        type={"submit"}
-        size={"large"}
-      >
-        {loading ? <CircularProgress size={"small"} /> : "Login"}
-      </Button>
-
+        <Box sx={styles.centerButton}>
+          <Button
+            variant={"contained"}
+            sx={styles.button}
+            type={"submit"}
+            size={"large"}
+          >
+            {loading ? <CircularProgress size={"small"} /> : "Login"}
+          </Button>
+        </Box>
+      </form>
       <Box sx={styles.registerNowContainer}>
         <Typography variant={"body2"}>Don't have an account? </Typography>
         <Button
@@ -141,6 +130,6 @@ export const LoginFormComponent: FC<Props> = ({}) => {
           Register Now
         </Button>
       </Box>
-    </form>
+    </Box>
   );
 };
