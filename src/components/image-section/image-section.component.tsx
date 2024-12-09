@@ -41,7 +41,7 @@ export const ImageSectionComponent: FC<Props> = ({}) => {
         width={640}
         height={360}
       />
-      <Box style={styles.spaceBetweenColumn}>
+      <Box sx={styles.spaceBetweenColumn}>
         <Box sx={styles.typographyContainer}>
           <Typography variant={"h3"}>Task Management</Typography>
           <Typography>Organize and track tasks efficiently</Typography>
