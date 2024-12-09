@@ -8,12 +8,10 @@ import { TaskApi } from "@/api/task.api";
 import { Notify } from "@/components/common/app-notifications/notifications";
 import { TaskDto } from "@/dtos/task/task.dto";
 
-type Props = {};
-
-const TasksPage: FC<Props> = ({}) => {
+const TasksPage: FC = () => {
   const [openCreateModal, setOpenCreateModal] = useState(false);
   const [currentStatus, setCurrentStatus] = useState("All");
-  const [tasks, setTasks] = useState<TaskDto[]>([]);
+  const [tasks, setTasks] = useState<TaskDto[] | undefined>([]);
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
   const styles = {
@@ -115,7 +113,7 @@ const TasksPage: FC<Props> = ({}) => {
             openCreateModal={openCreateModal}
             setOpenCreateModal={setOpenCreateModal}
             setTasks={setTasks}
-            tasks={tasks}
+            tasks={tasks!}
             update={update}
             onStatusChange={onStatusChange}
           />

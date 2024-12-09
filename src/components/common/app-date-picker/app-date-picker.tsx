@@ -1,7 +1,6 @@
 import { FC } from "react";
-import { borderRadius, SxProps } from "@mui/system";
 import { Control, Controller, FieldError } from "react-hook-form";
-import { Box, FormHelperText, InputLabel, MenuItem } from "@mui/material";
+import { Box, FormHelperText, InputLabel } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -24,7 +23,6 @@ export const AppDatePicker: FC<Props> = ({
   control,
   error,
   required = false,
-  placeholder,
   defaultValue,
 }) => {
   const styles = {
@@ -43,15 +41,12 @@ export const AppDatePicker: FC<Props> = ({
         name={name}
         control={control}
         defaultValue={defaultValue ? dayjs(defaultValue) : undefined}
-        render={({ field: { onChange, value } }) => (
+        render={({ field: { onChange } }) => (
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               onChange={onChange}
               defaultValue={defaultValue ? dayjs(defaultValue) : undefined}
               slotProps={{ textField: { variant: "filled" } }}
-              renderInput={(params: any) => (
-                <TextField {...params} error={Boolean(error)} />
-              )}
             />
           </LocalizationProvider>
         )}

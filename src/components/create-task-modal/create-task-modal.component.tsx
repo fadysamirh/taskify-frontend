@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginFormSchema } from "@/components/login-form/login-form.schema";
 import { createTaskSchema } from "@/components/create-task-modal/create-task-modal.schema";
 import { TaskPriorityEnum } from "@/enums/task-priority.enum";
 import { TaskStatusEnum } from "@/enums/task.status.enum";
@@ -19,8 +18,6 @@ import { AppDropdown } from "@/components/common/app-dropdown/app-dropdown";
 import { AppDatePicker } from "@/components/common/app-date-picker/app-date-picker";
 import { CloseIcon } from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon";
 import { TaskApi } from "@/api/task.api";
-import { useAppContext } from "@/contexts/app-context/app-context";
-import { useSnackbar } from "@/contexts/snackbar-context/snackbar-context";
 import { Notify } from "@/components/common/app-notifications/notifications";
 
 type Props = {
@@ -42,7 +39,7 @@ const CreateTaskModalComponent: FC<Props> = ({
   const {
     handleSubmit,
     control,
-    formState: { errors, isValid },
+    formState: { errors },
     getValues,
     setValue,
   } = useForm({

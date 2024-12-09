@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { borderRadius, SxProps } from "@mui/system";
-import { Control, Controller, FieldError } from "react-hook-form";
-import { Box, FormHelperText, InputLabel, MenuItem } from "@mui/material";
+import { SxProps } from "@mui/system";
+import { Control, Controller } from "react-hook-form";
+import { Box, InputLabel, MenuItem } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   label?: string;
   style?: SxProps;
   placeholder?: string | null;
-  control: Control<any>;
+  control: Control;
   required?: boolean;
   autoFocus?: boolean;
   size?: "small" | "medium";

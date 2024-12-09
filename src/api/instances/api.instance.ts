@@ -1,7 +1,5 @@
 import { Environments } from "@/Environments";
 import axios, { AxiosInstance, InternalAxiosRequestConfig } from "axios";
-import { ApiOptions } from "@/api/types/api-options.type";
-import { useAppContext } from "@/contexts/app-context/app-context";
 
 const clientInstance = axios.create({ baseURL: Environments.API_URL });
 const privateClientInstance = axios.create({ baseURL: Environments.API_URL });
@@ -12,7 +10,6 @@ export const setToken = (token: string | undefined) => {
 const requestInterceptor = async (
   isPrivate: boolean,
   config: InternalAxiosRequestConfig,
-  options?: ApiOptions,
 ): Promise<InternalAxiosRequestConfig> => {
   if (isPrivate) {
     const token = localStorage.getItem("accessToken");
@@ -34,10 +31,10 @@ privateClientInstance.interceptors.request.use(
   (error) => Promise.reject(error),
 );
 
-export const publicApi = (options?: ApiOptions): AxiosInstance => {
+export const publicApi = (): AxiosInstance => {
   return clientInstance;
 };
 
-export const privateApi = (options?: ApiOptions): AxiosInstance => {
+export const privateApi = (): AxiosInstance => {
   return privateClientInstance;
 };

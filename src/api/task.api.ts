@@ -4,7 +4,6 @@ import { TaskDto } from "@/dtos/task/task.dto";
 import { privateApi } from "@/api/instances/api.instance";
 import { AxiosResponse } from "axios";
 import { UpdateTaskDto } from "@/dtos/task/update-task.dto";
-import { TaskStatusEnum } from "@/enums/task.status.enum";
 
 export class TaskApi {
   public static async createTask(

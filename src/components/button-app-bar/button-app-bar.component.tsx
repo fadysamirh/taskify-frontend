@@ -5,16 +5,14 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import LogoutIcon from "@mui/icons-material/Logout";
-import AddIcon from "@mui/icons-material/Add";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import { FC } from "react";
 import Image from "next/image";
 import { Drawer } from "@mui/material";
 import { useAppContext } from "@/contexts/app-context/app-context";
-type Props = {};
 
-export const ButtonAppBar: FC<Props> = ({}) => {
+export const ButtonAppBar: FC = () => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const appContext = useAppContext();
 

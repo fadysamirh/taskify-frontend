@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { borderRadius, SxProps } from "@mui/system";
+import { SxProps } from "@mui/system";
 import { Control, Controller, FieldError } from "react-hook-form";
 import { Box, FormHelperText, InputLabel } from "@mui/material";
 import TextField from "@mui/material/TextField";
@@ -9,7 +9,7 @@ type Props = {
   label?: string;
   style?: SxProps;
   placeholder?: string | null;
-  control: Control<any>;
+  control: Control;
   error?: FieldError;
   required?: boolean;
   maxLength?: number;
@@ -55,7 +55,7 @@ export const AppTextField: FC<Props> = ({
         name={name}
         control={control}
         defaultValue={defaultValue ?? ""}
-        render={({ field: { onChange, value } }) => (
+        render={({ field: { onChange } }) => (
           <TextField
             multiline={multiline}
             sx={{ ...style }}

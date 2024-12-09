@@ -1,11 +1,8 @@
 "use client";
-import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import createEmotionCache from "@/create-emotion-cache";
 import { CacheProvider } from "@emotion/react";
-import React, { useMemo } from "react";
+import React from "react";
 import { Theme } from "@/styles/theme/theme";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";

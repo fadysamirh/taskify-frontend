@@ -1,12 +1,9 @@
 "use client";
 import { FC } from "react";
 import { Box } from "@mui/material";
-import { LoginPageContainer } from "@/containers/login-page/login-page.container";
 import { RegisterPageContainer } from "@/containers/register-page/register-page.container";
 
-type Props = {};
-
-const AuthenticationPage: FC<Props> = ({}) => {
+const AuthenticationPage: FC = () => {
   return (
     <Box>
       <RegisterPageContainer />
