@@ -27,9 +27,6 @@ export const useWindowSize = () => {
 
 export const useIsMobile = () => {
   const theme = useTheme();
-  const { isSsrMobile } = useAppContext();
   const { width: windowWidth } = useWindowSize();
-  const isBrowserMobile =
-    !!windowWidth && windowWidth <= theme.breakpoints.values.lg;
-  return isSsrMobile || isBrowserMobile;
+  return !!windowWidth && windowWidth <= theme.breakpoints.values.lg;
 };
