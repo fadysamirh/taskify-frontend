@@ -9,7 +9,7 @@ type Props = {
   label?: string;
   style?: SxProps;
   placeholder?: string | null;
-  control: Control;
+  control: Control<any>;
   error?: FieldError;
   required?: boolean;
   maxLength?: number;
