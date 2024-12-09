@@ -74,7 +74,7 @@ export const AppContextProvider: FC<Props> = ({ children }) => {
       setUser(user);
       setToken(accessToken);
 
-      router.push("tasks");
+      router.push("/");
     } catch (e: any) {
       if (e.response) {
         Notify.error(
