@@ -14,7 +14,7 @@ type Props = {
   control: Control<any>;
   error?: FieldError;
   required?: boolean;
-  defaultValue?: string;
+  defaultValue?: Date;
 };
 
 export const AppDatePicker: FC<Props> = ({
