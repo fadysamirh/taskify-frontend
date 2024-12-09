@@ -153,7 +153,9 @@ export const TaskCardComponent: FC<Props> = ({
             size={"small"}
             variant={"filled"}
             defaultValue={task.status ?? ""}
-            onChange={(event) => changeStatus(event.target.value)}
+            onChange={(event) =>
+              changeStatus(event.target.value as TaskStatusEnum)
+            }
             sx={styles.dropdown}
           >
             {Object.values(TaskStatusEnum).map((option) => (

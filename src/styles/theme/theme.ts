@@ -58,6 +58,9 @@ declare module "@mui/material/styles" {
   interface TypographyVariantsOptions {
     body1SemiBold?: React.CSSProperties;
     body1Bold?: React.CSSProperties;
+    body2: React.CSSProperties;
+    body2SemiBold: React.CSSProperties;
+    body2Bold: React.CSSProperties;
     label?: React.CSSProperties;
   }
 
@@ -84,6 +87,9 @@ declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     body1SemiBold: true;
     body1Bold: true;
+    body2: true;
+    body2SemiBold: true;
+    body2Bold: true;
     label: true;
   }
 }
@@ -178,10 +184,6 @@ export const Theme = (): ITheme => {
         secondary: "#00907A",
         disabled: "#98b4d3",
       },
-    },
-    typography: {
-      fontFamily: publicSans.style.fontFamily,
-      htmlFontSize: 14,
     },
   });
 
