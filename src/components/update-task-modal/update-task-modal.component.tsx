@@ -19,11 +19,9 @@ import { AppDatePicker } from "@/components/common/app-date-picker/app-date-pick
 import { useIsMobile } from "@/contexts/app-context/app-context.hooks";
 import { CloseIcon } from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon";
 import { TaskApi } from "@/api/task.api";
-import { useSnackbar } from "@/contexts/snackbar-context/snackbar-context";
 import { Notify } from "@/components/common/app-notifications/notifications";
 import { TaskDto } from "@/dtos/task/task.dto";
 import { updateTaskSchema } from "@/components/update-task-modal/update-task-modal.schema";
-import { UpdateTaskDto } from "@/dtos/task/update-task.dto";
 
 type Props = {
   open: boolean;
